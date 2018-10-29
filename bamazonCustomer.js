@@ -5,10 +5,13 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "password",
-  database: "bamazonDB"
+  database: "BamazonDB"
 });
 
-
+function start(){
+  
+  connection.query('SELECT * FROM products', function(err, res){
+    if(err) throw err;
 
   for(var i = 0; i < results.length;i++){
     console.log("ID: " + results[i].ItemID + " | " + "Product: " + results[i].ProductName + " | " + "Department: " + results[i].DepartmentName + " | " + "Price: " + results[i].Price + " | " + "Quantity: " + results[i].StockQuantity);
@@ -81,3 +84,5 @@ var connection = mysql.createConnection({
 
       
     })
+  })
+}
